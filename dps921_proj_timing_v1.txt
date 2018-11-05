@@ -1,0 +1,71 @@
+**********
+CPP Timing
+**********
+
+tsarkar@tsarkar-VirtualBox:~/Documents/cpp_files$ echo $OMP_NUM_THREADS
+4
+
+tsarkar@tsarkar-VirtualBox:~/Documents/cpp_files$ g++ -fopenmp -o mm_para matmul_parallel.cpp 
+matmul_parallel.cpp:12:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+tsarkar@tsarkar-VirtualBox:~/Documents/cpp_files$ ./mm_base 
+Matrix Multiplication 512 by 512
+initialization: 17 milliseconds
+execution: 1584 milliseconds
+checksum = 11108543.79
+max threads: 4
+
+tsarkar@tsarkar-VirtualBox:~/Documents/cpp_files$ ./mm_interchange 
+Matrix Multiplication 512 by 512
+initialization: 19 milliseconds
+execution: 964 milliseconds
+checksum = 11108543.79
+max threads: 4
+
+tsarkar@tsarkar-VirtualBox:~/Documents/cpp_files$ ./mm_para
+Matrix Multiplication 512 by 512
+initialization: 10 milliseconds
+execution: 367 milliseconds
+checksum = 3450849.70
+max threads: 4
+
+tsarkar@tsarkar-VirtualBox:~/Documents/cpp_files$
+
+************
+JULIA TIMING
+************
+
+tsarkar@tsarkar-VirtualBox:~$ echo $JULIA_NUM_THREADS
+4
+
+tsarkar@tsarkar-VirtualBox:~$ cd Documents/jl_scripts/
+
+tsarkar@tsarkar-VirtualBox:~/Documents/jl_scripts$ julia matmul_base.jl 
+checksum = 1.1173824041748047e7
+matmul func time (s):
+1.0460460186004639
+
+tsarkar@tsarkar-VirtualBox:~/Documents/jl_scripts$ julia matmul_interchange.jl 
+checksum = 1.1173824041748047e7
+matmul func time (s):
+1.0617320537567139
+
+tsarkar@tsarkar-VirtualBox:~/Documents/jl_scripts$ julia matmul_para_ijk.jl 
+checksum = 3.285789472534228e6
+matmul func time (s):
+0.1746230125427246
+num threads: 
+4
+
+tsarkar@tsarkar-VirtualBox:~/Documents/jl_scripts$ julia matmul_para_ikj.jl 
+checksum = 3.2488500836879946e6
+matmul func time (s):
+0.40584802627563477
+num threads: 
+4
+
+tsarkar@tsarkar-VirtualBox:~/Documents/jl_scripts$ 
+
+
+

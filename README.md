@@ -9,8 +9,8 @@ About the code, parallelization with threads worked, but what was interesting wa
 
 https://www.quora.com/What-are-some-good-uses-for-the-Julia-programming-language
 
-https://juliacomputing.com/case-studies/julia's multi-threading support
+https://juliacomputing.com/case-studies/ julia's multi-threading support
 
-https://docs.julialang.org/en/stable/manual/parallel-computing/#Multi-Threading-(Experimental)-1and loop interchange
+https://docs.julialang.org/en/v1/manual/parallel-computing/
 
 https://en.wikipedia.org/wiki/Loop_interchange 
